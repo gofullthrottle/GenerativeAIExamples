@@ -529,11 +529,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---RETRIEVE---&quot;</span><span class="p">)</span>
     <span class="n">sub_questions</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;sub_questions&quot;</span><span class="p">]</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">]</span>
 
     <span class="c1"># Retrieval</span>
     <span class="n">documents</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">question</span> <span class="ow">in</span> <span class="n">sub_questions</span><span class="p">:</span>
-        <span class="n">docs</span> <span class="o">=</span> <span class="n">hybrid_retriever</span><span class="o">.</span><span class="n">get_relevant_documents</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">sub_question</span> <span class="ow">in</span> <span class="n">sub_questions</span><span class="p">:</span>
+        <span class="n">docs</span> <span class="o">=</span> <span class="n">hybrid_retriever</span><span class="o">.</span><span class="n">get_relevant_documents</span><span class="p">(</span><span class="n">sub_question</span><span class="p">)</span>
         <span class="n">documents</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="n">documents</span><span class="p">,</span> <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">}</span>
 
